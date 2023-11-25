@@ -14,7 +14,7 @@ const Navber = () => {
       };
     const link=<>
     <li><NavLink to={"/"}>Home</NavLink></li>
-   <li><NavLink to={"/event"}> Event </NavLink></li>
+   <li><NavLink to={"/allcontest"}> All Contest </NavLink></li>
     <li><NavLink to={"/About"}>About</NavLink></li>
     <li><NavLink to={"/alumniDatabase"}>Alumni Database</NavLink></li>
     
@@ -54,7 +54,7 @@ const Navber = () => {
             alt=""
           />
           <a className="text-gray-600 normal-case font-bold mt-1 -ml-3 lg:text-sm md:text-sm text-[10px] ">
-            {/* BCBHS Alumni Association */}
+            
           </a>
         </div>
         <div className="navbar-center  hidden lg:flex">
