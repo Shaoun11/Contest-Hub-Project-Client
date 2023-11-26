@@ -4,6 +4,9 @@ import Footer from '../Footer/Footer';
 import {Helmet} from "react-helmet";
 import ContestCard from '../Home/ContestCard';
 import Navber from '../Navber';
+import { FiSearch } from 'react-icons/fi';
+
+
 const AllContest = () => {
     const [search,setsearch]=useState('');
 
@@ -59,7 +62,7 @@ const AllContest = () => {
                                         placeholder="Search your Food name"
                                     />
                                     <div className="ms:flex items-center px-2 py-1  rounded-lg space-x-4 mx-auto">
-
+                                    <FiSearch className='text-xl' ></FiSearch>
                                        
                                     </div>
                                 </div>
@@ -68,7 +71,7 @@ const AllContest = () => {
                     </div>
                 </div>
                 <div className=' lg:pt-8 lg:mr-4 md:pt-36'>
-                    <img className='w-[600px] h-600px]' src="https://i.ibb.co/r6KvxGT/61a2261ddfe918edd50d591b-f-MNtx8k-MR7i-Owgv-Hmg-Ap-E4e-Gn-J8zo5v-Bch9knvp-JVRWWQw-TZa-QH2xf-Qbcc-SM4.jpg" alt="" />
+                    <img className='w-[600px] h-600px] rounded-md' src="https://i.ibb.co/r6KvxGT/61a2261ddfe918edd50d591b-f-MNtx8k-MR7i-Owgv-Hmg-Ap-E4e-Gn-J8zo5v-Bch9knvp-JVRWWQw-TZa-QH2xf-Qbcc-SM4.jpg" alt="" />
                 </div>
             </div>
             <h1 className='text-6xl lg:mt-10 md:mt-10 mt-[400px] mb-16 font-bold text-center' >  ALL <span className='text-red-500'>Contest</span> </h1>

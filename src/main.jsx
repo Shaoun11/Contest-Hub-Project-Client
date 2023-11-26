@@ -7,6 +7,10 @@ import Mainlayout from './Mainlayout'
 import Errorpage from './Error'
 import Home from './Components/Home/Home'
 import AllContest from './Components/AllContest/AllContest'
+import AuthProvider from './Components/AuthProvider/AuthProvider'
+import Login from './Components/Authentication/Login'
+import Register from './Components/Authentication/Register'
+import ContestDetails from './Components/Details/Details'
 
 
 const createroute=createBrowserRouter([{
@@ -22,6 +26,19 @@ const createroute=createBrowserRouter([{
     path:"/allcontest",
     element:<AllContest></AllContest>
 
+  },
+  {
+    path:"/login",
+    element:<Login></Login>
+  },
+  {
+    path:"/register",
+    element:<Register></Register>
+  }, 
+  {
+    path: "/details/:id",
+    element:<ContestDetails></ContestDetails>,
+   loader:({params})=>fetch(`http://localhost:5000/allcontest/${params.id}`)
   }
 
 ]
@@ -34,9 +51,11 @@ const client = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')).render(
 
   <React.StrictMode>
+      <AuthProvider>
       <QueryClientProvider client={client}>
       <RouterProvider router={createroute} ></RouterProvider>
       </QueryClientProvider>
+      </AuthProvider>
   
   </React.StrictMode>,
 )

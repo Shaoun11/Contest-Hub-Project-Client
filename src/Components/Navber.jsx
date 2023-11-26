@@ -1,13 +1,14 @@
 
 import { useContext } from 'react';
 import {  NavLink } from 'react-router-dom';
+import { Authcontext } from './AuthProvider/AuthProvider';
 
 
 
 
 
 const Navber = () => {
-      const { user, logout } = useContext;
+      const { user, logout } = useContext(Authcontext);
 
       const handelSingout = () => {
         logout().then().catch();
