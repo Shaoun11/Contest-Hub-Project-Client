@@ -5,6 +5,7 @@ import {Helmet} from "react-helmet";
 import ContestCard from '../Home/ContestCard';
 import Navber from '../Navber';
 import { FiSearch } from 'react-icons/fi';
+import Loading from '../Loading/Loading';
 
 
 const AllContest = () => {
@@ -14,24 +15,27 @@ const AllContest = () => {
    const searchQuery = search.toLowerCase(); 
     const [page,setpage]=useState(0);
     const [loader,setloader]=useState(true);
-     console.log(page);
+    
 
-     const {data:{result,total},isLoading,isError}=useQuery({
-        queryKey:['allfoods',page,loader ],
+     const {data={result:[],total:0},isLoading,isError}=useQuery({
+        queryKey:['allcontest',page,loader ],
         queryFn:async ()=>{
             const response=await fetch(`http://localhost:5000/allcontest?page=${page}`)
             const data=await  response.json()
-           setloader(false,)
+           setloader(false)
             return data;
          
-        },
-        initialData:{result:[],total:0}
+        }
     })
 
     
-    const numberofpage=Math.ceil(total/9);
+    const numberofpage=Math.ceil(data.total/9);
 
     const pages=[... Array(numberofpage).keys()]
+console.log(isLoading);
+    if (isLoading) {
+        return <Loading></Loading>
+     }
 
     return (
         <div>
@@ -78,7 +82,7 @@ const AllContest = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto gap-6'>
             {
-                    result.filter((item)=>{
+                    data.result.filter((item)=>{
                         return  item.title.toLowerCase().includes(searchQuery);
                     }).map(food => <ContestCard key={food._id} data={food} > </ContestCard>)
                 }

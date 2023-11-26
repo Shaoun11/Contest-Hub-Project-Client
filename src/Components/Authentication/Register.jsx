@@ -3,7 +3,7 @@ import { Form, NavLink, Navigate, useLocation, useNavigate } from 'react-router-
 import toast from 'react-hot-toast';
 import { Authcontext } from '../AuthProvider/AuthProvider';
 
-
+import axios from 'axios';
 
 
 
@@ -39,13 +39,22 @@ const Register = () => {
         .then((userCredential) => {
             handleUpdateProfile(name, img)
             .then(()=>{
+                const userInfo = {
+                    name: name,
+                    email:email
+                }
+                axios.post("http://localhost:5000/users",userInfo)
+                .then(res => {
+                   
+                    toast.success('Registation Successfully!')
+                     
                
-                toast.success('Registation Successfully!')
-                window.location.reload();
-                navigate("/")
+               
+                })
+               
                 
             })
-            
+            navigate("/") 
          
           })
           .catch((error) => {
@@ -60,6 +69,8 @@ const Register = () => {
     const handleloginadd=(media)=>{
         media()
         .then(res => {
+
+
             
             toast.success('User logged in successfully');
             navigate(location?.state? location?.state:('/'))

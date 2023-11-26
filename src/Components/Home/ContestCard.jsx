@@ -9,7 +9,7 @@ const ContestCard = ({data}) => {
             
         <div data-aos='fade-up' className=" flex  h-[470px] max-w-[26rem]  flex-col rounded-xl bg-gray-100 bg-clip-border text-gray-700 shadow-lg">
   <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
-    <img className='w-[400px] h-full '
+    <img className='w-[400px] h-full  '
       src={image}
       alt="ui/ux review check"
     />
