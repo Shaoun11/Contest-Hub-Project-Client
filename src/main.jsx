@@ -12,6 +12,12 @@ import Login from './Components/Authentication/Login'
 import Register from './Components/Authentication/Register'
 import ContestDetails from './Components/Details/Details'
 
+import AllUsers from './Components/Dashboard/Alluser'
+import Dashboard from './Components/Dashboard/Dashborad'
+import AdminRoute from './Components/AdminRoute/AdminRoute'
+import PrivateRoute from './PrivateRoute.jsx/PrivateRoute'
+
+
 
 const createroute=createBrowserRouter([{
   path:"/",
@@ -39,6 +45,14 @@ const createroute=createBrowserRouter([{
     path: "/details/:id",
     element:<ContestDetails></ContestDetails>,
    loader:({params})=>fetch(`http://localhost:5000/allcontest/${params.id}`)
+  },
+  {
+    path:"/dashboard",
+    element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children:[{
+      path:"users",
+      element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
+    }]
   }
 
 ]

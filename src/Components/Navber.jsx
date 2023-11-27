@@ -1,6 +1,6 @@
 
 import { useContext } from 'react';
-import {  NavLink } from 'react-router-dom';
+import {  Link, NavLink } from 'react-router-dom';
 import { Authcontext } from './AuthProvider/AuthProvider';
 
 
@@ -17,8 +17,7 @@ const Navber = () => {
     <li><NavLink to={"/"}>Home</NavLink></li>
    <li><NavLink to={"/allcontest"}> All Contest </NavLink></li>
     <li><NavLink to={"/About"}>About</NavLink></li>
-    <li><NavLink to={"/alumniDatabase"}>Alumni Database</NavLink></li>
-    
+    <li><Link to="/dashboard">Dashboard</Link></li>
 
   </>
     return (
