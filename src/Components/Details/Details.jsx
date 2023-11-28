@@ -75,7 +75,7 @@ const ContestDetails = () => {
         </div>
         
         <p className='font-semibold  '>Participantes: <span className='text-red-500'>{participants}</span>  </p>
-        <h2  className="text-lg text-gray-800 title-font font-semibold  tracking-widest">*{prizes}</h2>
+        <h2  className="text-lg text-gray-800 title-font font-semibold  tracking-widest">*1st Prize ${prizes}</h2>
 
         <p  className="leading-relaxed pt-3"> {description} </p>
         <div  className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
@@ -103,7 +103,7 @@ const ContestDetails = () => {
 
         <div  className="flex justify-between">
          <div>
-         <span  className="title-font flex  font-medium text-2xl text-gray-900">Pay:{price}</span>
+         <span  className="title-font flex  font-medium text-2xl text-gray-900">Pay:${price}</span>
           
          </div>
         <div className='flex'>

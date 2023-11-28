@@ -46,7 +46,7 @@ const ContestCard = ({data}) => {
     
     <div className='flex mt-1 mb-2 justify-between'>
     <h5 className="block font-sans text-xl font-medium leading-snug tracking-normal text-blue-gray-900 antialiased">
-      Entry Free: {price}
+      Entry Free: {price}$
       </h5>
 
       <h5 className="block font-sans text-sm  font-medium leading-snug tracking-normal text-blue-gray-900 antialiased">

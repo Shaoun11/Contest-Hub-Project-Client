@@ -16,6 +16,8 @@ import AllUsers from './Components/Dashboard/Alluser'
 import Dashboard from './Components/Dashboard/Dashborad'
 import AdminRoute from './Components/AdminRoute/AdminRoute'
 import PrivateRoute from './PrivateRoute.jsx/PrivateRoute'
+import AddContest from './Components/AddContest/AddContest'
+import MyAddedContest from './Components/AddContest/MyAddedContest'
 
 
 
@@ -49,10 +51,22 @@ const createroute=createBrowserRouter([{
   {
     path:"/dashboard",
     element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
-    children:[{
+    children:[
+      {
       path:"users",
       element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
-    }]
+    },
+      {
+      path:"addcontest",
+      element:<AddContest></AddContest>
+    },
+    {
+      path:"myaddcontest",
+      element:<PrivateRoute><MyAddedContest></MyAddedContest></PrivateRoute>,
+      loader:()=>fetch(`http://localhost:5000/allcontest`) 
+    }
+  
+  ]
   }
 
 ]
