@@ -64,7 +64,7 @@ const Dashboard = () => {
 </div>
                         </div>
                                 <li>
-                                    <NavLink to="/dashboard/userHome">
+                                    <NavLink to="/dashboard/myprofile">
                                         <CgProfile></CgProfile>
                                         My Profile</NavLink>
                                 </li>

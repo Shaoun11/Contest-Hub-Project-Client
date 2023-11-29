@@ -18,6 +18,7 @@ import AdminRoute from './Components/AdminRoute/AdminRoute'
 import PrivateRoute from './PrivateRoute.jsx/PrivateRoute'
 import AddContest from './Components/AddContest/AddContest'
 import MyAddedContest from './Components/AddContest/MyAddedContest'
+import MyProfile from './Components/MyProfile/MyProfile'
 
 
 
@@ -59,6 +60,11 @@ const createroute=createBrowserRouter([{
       {
       path:"addcontest",
       element:<AddContest></AddContest>
+    },
+      {
+      path:"myprofile",
+      element:<MyProfile></MyProfile>,
+      loader:()=>fetch(`http://localhost:5000/allcontest`) 
     },
     {
       path:"myaddcontest",
