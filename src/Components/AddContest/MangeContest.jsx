@@ -10,7 +10,7 @@ import { FaEdit, FaTrashAlt, FaUsers } from 'react-icons/fa';
 
 const ManageContest = () => {
     const [contest,setcontest]=useState([]);
-    const result=useLoaderData();
+    const {result}=useLoaderData();
 
 
     const {user}=useContext(Authcontext);
