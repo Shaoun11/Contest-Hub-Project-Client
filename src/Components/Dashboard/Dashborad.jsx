@@ -5,7 +5,7 @@ import useAdmin from "../hooks/useAdmin";
 import { useContext } from "react";
 import { Authcontext } from "../AuthProvider/AuthProvider";
 import Navber from "../Navber";
-
+import { IoIosDoneAll } from "react-icons/io";
 
 
 const Dashboard = () => {
@@ -19,11 +19,11 @@ const Dashboard = () => {
             <Navber></Navber>
             <div className="flex">
             {/* dashboard side bar */}
-            <div className="w-64 min-h-screen  bg-stone-200">
+            <div className="w-64 min-h-screen  bg-indigo-200">
                 <ul className="menu p-4">
                     {
                         isAdmin ? <>
-                                       <div className=" font-sans mb-6 pt-20 w-[200px] flex flex-row justify-center items-center">
+                                       <div className="  font-sans mb-6 pt-20 w-[200px] flex flex-row justify-center items-center">
   <div className="card w-96 mx-auto ">
      <img className="w-32 h-32 mx-auto rounded-full -mt-20 border-8 border-white" src={user.photoURL} alt=""/>
      <div className=" mt-2 ml-4 text-xl font-medium">{user.displayName}(Admin)</div>
@@ -33,13 +33,13 @@ const Dashboard = () => {
   </div>
 </div>
                             <li>
-                                <NavLink to="/dashboard/adminHome">
+                                <NavLink to="/">
                                     <FaHome></FaHome>
                                     Admin Home</NavLink>
                             </li>
                            
                             <li>
-                                <NavLink to="/dashboard/manageItems">
+                                <NavLink to="/dashboard/managecontest">
                                     <FaList></FaList>
                                     Manage Items</NavLink>
                             </li>
@@ -53,7 +53,7 @@ const Dashboard = () => {
                             :
                             <>
                             <div>
-                        <div className=" font-sans pt-20 w-[200px] flex flex-row justify-center items-center">
+                        <div className=" font-sans pt-20  w-[200px] flex flex-row justify-center items-center">
   <div className="card w-96 mx-auto ">
      <img className="w-32 h-32 mx-auto rounded-full -mt-20 border-8 border-white" src={user.photoURL} alt=""/>
      <div className=" mt-2 ml-4 text-xl font-medium">{user.displayName}(User)</div>
@@ -63,8 +63,9 @@ const Dashboard = () => {
   </div>
 </div>
                         </div>
+                                <div className="pt-8">
                                 <li>
-                                    <NavLink to="/dashboard/myprofile">
+                                    <NavLink to="/dashboard">
                                         <CgProfile></CgProfile>
                                         My Profile</NavLink>
                                 </li>
@@ -75,8 +76,9 @@ const Dashboard = () => {
                                 <li>
                                     <NavLink to="/dashboard/myaddcontest">
                                      
-                                        My Contest </NavLink>
+                                        <IoIosDoneAll className="text-xl"></IoIosDoneAll>My Contest </NavLink>
                                 </li>
+                                </div>
                                 {/* <li>
                                     <NavLink to="/dashboard/review">
                                         <FaAd></FaAd>
@@ -96,16 +98,8 @@ const Dashboard = () => {
                             <FaHome></FaHome>
                             Home</NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/order/salad">
-                            <FaSearch></FaSearch>
-                            AllContest</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/order/contact">
-                            <FaEnvelope></FaEnvelope>
-                            Contact</NavLink>
-                    </li>
+                   
+                  
                 </ul>
             </div>
             {/* dashboard content */}

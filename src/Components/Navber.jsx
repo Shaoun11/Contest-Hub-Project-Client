@@ -2,6 +2,8 @@
 import { useContext } from 'react';
 import {  Link, NavLink } from 'react-router-dom';
 import { Authcontext } from './AuthProvider/AuthProvider';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 
 
@@ -9,6 +11,17 @@ import { Authcontext } from './AuthProvider/AuthProvider';
 
 const Navber = () => {
       const { user, logout } = useContext(Authcontext);
+      
+      const { data: {result} = [] } = useQuery({
+        queryKey: ['allcontest'],
+        queryFn: async () => {
+            const res = await axios.get('http://localhost:5000/allcontest');
+            return res.data;
+        }
+    })
+
+
+
 
       const handelSingout = () => {
         logout().then().catch();
@@ -101,10 +114,10 @@ const Navber = () => {
                 className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <NavLink 
-                  to="/myprofile"
+                  to="/dashboard"
                   className="px-4 py-2 hover:bg-base-300 rounded-lg"
                 >
-                  My Profile
+                  Dashboard
                 </NavLink>
                
 

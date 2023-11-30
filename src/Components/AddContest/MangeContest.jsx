@@ -1,28 +1,22 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
-
+import { MdDoneAll } from "react-icons/md";
 import Footer from '../Footer/Footer';
 import { Authcontext } from '../AuthProvider/AuthProvider';
 import { FaEdit, FaTrashAlt, FaUsers } from 'react-icons/fa';
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 
 
-const MyAddedContest = () => {
+const ManageContest = () => {
     const [contest,setcontest]=useState([]);
-    
-      const{result}=useLoaderData([]);
+    const result=useLoaderData();
 
 
     const {user}=useContext(Authcontext);
     const addedcart=user?.email;
 
-    useEffect(()=>{
-        const addedcontestfilter=result?.filter(cart=>cart?.useremail==addedcart)
-        setcontest(addedcontestfilter)
-    },[addedcart,result])
+    
 
     console.log(contest);
 
@@ -30,7 +24,7 @@ const MyAddedContest = () => {
         <div>
              
             <div>
-                <h1 className='text-5xl font-semibold text-center'>My Added <span className='text-red-500'>Contest</span></h1>
+                <h1 className='text-5xl font-semibold text-center'>Manage <span className='text-red-500'>Contest</span></h1>
             </div>
             <div className='max-w-5xl mx-auto mt-20 mb-28  grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-6'>
                
@@ -43,22 +37,22 @@ const MyAddedContest = () => {
                             <th></th>
                             <th>Contest Name</th>
                             <th>Contest Image</th>
-                            <th>Edit</th>
-                            <th>Action</th>
+                            <th>Accept</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                     {
-                    contest.map((contest,index)=> <tr key={contest._id}>
+                    result.map((contest,index)=> <tr key={contest._id}>
                         <th>{index + 1}</th>
                         <td className='text-lg font-semibold'>{contest.title}</td>
-                        <td><img className='w-20 h-20 rounded-md' src={contest.image} alt="" /></td>
+                        <td><img className='w-20 h-20 rounded-md object-cover' src={contest.image} alt="" /></td>
                         <td>
-                        <Link to={'/dashboard/updatedcontest'}><button
+                        <button
                               
                               className="btn btn-ghost btn-lg">
-                              <FaEdit className="text-red-600 text-xl -ml-5"></FaEdit>
-                          </button></Link>
+                              <MdDoneAll className="text-green-600 text-xl -ml-5"></MdDoneAll>
+                          </button>
                            
                         </td>
                         <td>
@@ -78,4 +72,4 @@ const MyAddedContest = () => {
     );
 };
 
-export default MyAddedContest;
+export default ManageContest;

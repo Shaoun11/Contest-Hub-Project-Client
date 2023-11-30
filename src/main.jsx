@@ -19,6 +19,10 @@ import PrivateRoute from './PrivateRoute.jsx/PrivateRoute'
 import AddContest from './Components/AddContest/AddContest'
 import MyAddedContest from './Components/AddContest/MyAddedContest'
 import MyProfile from './Components/MyProfile/MyProfile'
+import Payment from './Components/Checkout/Payment'
+import Done from './Components/done'
+import ManageContest from './Components/AddContest/MangeContest'
+import UpdatedContest from './Components/AddContest/Updated'
 
 
 
@@ -39,12 +43,19 @@ const createroute=createBrowserRouter([{
   {
     path:"/login",
     element:<Login></Login>
+  },{
+    path:"/done",
+    element:<Done></Done>
   },
   {
     path:"/register",
     element:<Register></Register>
   }, 
   {
+    path:"/payment",
+    element:<Payment></Payment>
+  }
+  ,{
     path: "/details/:id",
     element:<ContestDetails></ContestDetails>,
    loader:({params})=>fetch(`http://localhost:5000/allcontest/${params.id}`)
@@ -62,13 +73,23 @@ const createroute=createBrowserRouter([{
       element:<AddContest></AddContest>
     },
       {
-      path:"myprofile",
+      path:"/dashboard",
       element:<MyProfile></MyProfile>,
       loader:()=>fetch(`http://localhost:5000/allcontest`) 
     },
     {
       path:"myaddcontest",
       element:<PrivateRoute><MyAddedContest></MyAddedContest></PrivateRoute>,
+      loader:()=>fetch(`http://localhost:5000/allcontest`) 
+    },
+    {
+      path:"updatedcontest",
+      element:<PrivateRoute><UpdatedContest></UpdatedContest></PrivateRoute>,
+      loader:()=>fetch(`http://localhost:5000/contest`) 
+    },
+    {
+      path:"managecontest",
+      element:<AdminRoute><ManageContest></ManageContest></AdminRoute>,
       loader:()=>fetch(`http://localhost:5000/allcontest`) 
     }
   
