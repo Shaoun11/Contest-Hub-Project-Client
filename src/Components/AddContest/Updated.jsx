@@ -37,7 +37,7 @@ const UpdatedContest = () => {
        const author_name=user?.displayName;
         const data={title,image,startDate,endDate,participants,prizes,description,useremail,author_image,author_name,price}
        console.log(data);
-       fetch(`http://localhost:5000/contest/${_id}`, {
+       fetch(`https://12-server-site-assignment.vercel.app/contest/${_id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

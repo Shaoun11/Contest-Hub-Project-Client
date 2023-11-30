@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navber from '../Navber';
 import Banner from '../Banner/Banner';
 import Footer from '../Footer/Footer';
@@ -10,6 +10,7 @@ import Testimonial from '../Testimnial/Testimonial';
 import Contact from '../Contact/Contact';
 
 const Home = () => {
+ 
     const {result}=useLoaderData();
     const slicedData = result.slice(0, 5);
     return (

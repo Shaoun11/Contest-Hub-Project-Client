@@ -15,7 +15,7 @@ const Navber = () => {
       const { data: {result} = [] } = useQuery({
         queryKey: ['allcontest'],
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/allcontest');
+            const res = await axios.get('https://12-server-site-assignment.vercel.app/allcontest');
             return res.data;
         }
     })
@@ -29,7 +29,7 @@ const Navber = () => {
     const link=<>
     <li><NavLink to={"/"}>Home</NavLink></li>
    <li><NavLink to={"/allcontest"}> All Contest </NavLink></li>
-    <li><NavLink to={"/About"}>About</NavLink></li>
+    <li><NavLink to={"/about"}>About</NavLink></li>
     <li><Link to="/dashboard">Dashboard</Link></li>
 
   </>

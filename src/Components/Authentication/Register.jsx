@@ -43,7 +43,7 @@ const Register = () => {
                     name: name,
                     email:email
                 }
-                axios.post("http://localhost:5000/users",userInfo)
+                axios.post("https://12-server-site-assignment.vercel.app/users",userInfo)
                 .then(res => {
                    
                     toast.success('Registation Successfully!')

@@ -11,7 +11,6 @@ import AuthProvider from './Components/AuthProvider/AuthProvider'
 import Login from './Components/Authentication/Login'
 import Register from './Components/Authentication/Register'
 import ContestDetails from './Components/Details/Details'
-
 import AllUsers from './Components/Dashboard/Alluser'
 import Dashboard from './Components/Dashboard/Dashborad'
 import AdminRoute from './Components/AdminRoute/AdminRoute'
@@ -23,6 +22,7 @@ import Payment from './Components/Checkout/Payment'
 import Done from './Components/done'
 import ManageContest from './Components/AddContest/MangeContest'
 import UpdatedContest from './Components/AddContest/Updated'
+import About from './Components/About/About'
 
 
 
@@ -33,7 +33,7 @@ const createroute=createBrowserRouter([{
   children:[{
     path:"/",
     element:<Home></Home>,
-    loader:()=>fetch("http://localhost:5000/allcontest")
+    loader:()=>fetch("https://12-server-site-assignment.vercel.app/allcontest")
   },
   {
     path:"/allcontest",
@@ -54,11 +54,15 @@ const createroute=createBrowserRouter([{
   {
     path:"/payment",
     element:<Payment></Payment>
+  },
+  {
+    path:"/about",
+    element:<About></About>
   }
   ,{
     path: "/details/:id",
     element:<ContestDetails></ContestDetails>,
-   loader:({params})=>fetch(`http://localhost:5000/allcontest/${params.id}`)
+   loader:({params})=>fetch(`https://12-server-site-assignment.vercel.app/allcontest/${params.id}`)
   },
   {
     path:"/dashboard",
@@ -75,22 +79,22 @@ const createroute=createBrowserRouter([{
       {
       path:"/dashboard",
       element:<MyProfile></MyProfile>,
-      loader:()=>fetch(`http://localhost:5000/allcontest`) 
+      loader:()=>fetch(`https://12-server-site-assignment.vercel.app/allcontest`) 
     },
     {
       path:"myaddcontest",
       element:<PrivateRoute><MyAddedContest></MyAddedContest></PrivateRoute>,
-      loader:()=>fetch(`http://localhost:5000/allcontest`) 
+      loader:()=>fetch(`https://12-server-site-assignment.vercel.app/allcontest`) 
     },
     {
       path:"updatedcontest",
       element:<PrivateRoute><UpdatedContest></UpdatedContest></PrivateRoute>,
-      loader:()=>fetch(`http://localhost:5000/contest`) 
+      loader:()=>fetch(`https://12-server-site-assignment.vercel.app/contest`) 
     },
     {
       path:"managecontest",
       element:<AdminRoute><ManageContest></ManageContest></AdminRoute>,
-      loader:()=>fetch(`http://localhost:5000/allcontest`) 
+      loader:()=>fetch(`https://12-server-site-assignment.vercel.app/allcontest`) 
     }
   
   ]

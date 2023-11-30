@@ -20,7 +20,7 @@ const AllContest = () => {
      const {data={result:[],total:0},isLoading,isError}=useQuery({
         queryKey:['allcontest',page,loader ],
         queryFn:async ()=>{
-            const response=await fetch(`http://localhost:5000/allcontest?page=${page}`)
+            const response=await fetch(`https://12-server-site-assignment.vercel.app/allcontest?page=${page}`)
             const data=await  response.json()
            setloader(false)
             return data;

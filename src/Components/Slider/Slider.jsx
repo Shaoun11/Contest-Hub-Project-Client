@@ -17,7 +17,7 @@ const Slider = () => {
     const [data,setdata]=useState([]);
 
     useEffect(()=>{
-   fetch("http://localhost:5000/allcontest")
+   fetch("https://12-server-site-assignment.vercel.app/allcontest")
    .then(res=>res.json())
    .then(data=>setdata(data))
     },[])
