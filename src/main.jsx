@@ -72,7 +72,7 @@ const createroute=createBrowserRouter([{
       path:"users",
       element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
     },
-      {
+      { 
       path:"addcontest",
       element:<AddContest></AddContest>
     },
